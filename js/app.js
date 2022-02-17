@@ -87,15 +87,19 @@ calculateButton.addEventListener("click", function () {
 
 // Save button
 saveButton.addEventListener("click", function () {
-  if (Number.parseFloat(saveInput.value) > 0) {
-    savingAmount.innerText = Math.round(
+  if (Number.parseFloat(saveInput.value) >= 0) {
+    const savingAmountValue = Math.round(
       Number.parseFloat(balance.innerText) *
         (Number.parseFloat(saveInput.value) / 100)
     );
+    console.log(savingAmountValue);
+    // if(savingAmount)
 
     remainingBalance.innerText = balanceAmount(
       balance.innerText,
       savingAmount.innerText
     );
+  } else {
+    alert("Please input positive to calculate Saving Amount");
   }
 });
