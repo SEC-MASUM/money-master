@@ -20,6 +20,10 @@ function balanceAmount(bigAmount, smallAmount) {
 }
 //Calcutale button
 calculateButton.addEventListener("click", function () {
+  // clean saving section value
+  saveInput.value = "";
+  savingAmount.innerText = "";
+  remainingBalance.innerText = "";
   /* Checking income and expenses fields are empty or not */
   if (
     incomeInput.value != "" ||
