@@ -16,22 +16,30 @@
         <div class="right-side">
           <div class="right-side-containts">
             <h4>Income</h4>
-            <label class="form-control">Income:</label>
-            <input class="form-input form-control" type="text" />
+            <label class="form-control">Income: </label>
+            <input
+              id="income-input"
+              class="form-input form-control"
+              type="text"
+            />
 
             <h4>Expenses</h4>
             <label class="form-control">Food: </label>
-            <input class="form-input form-control" type="text" />
+            <input id="food-cost" class="form-input form-control" type="text" />
             <br />
             <label class="form-control">Rent: </label>
-            <input class="form-input form-control" type="text" />
+            <input id="rest-cost" class="form-input form-control" type="text" />
             <br />
-            <label class="form-control">Clothes:</label>
-            <input class="form-input form-control" type="text" />
+            <label class="form-control">Clothes: </label>
+            <input
+              id="clothes-cost"
+              class="form-input form-control"
+              type="text"
+            />
             <br />
             <div class="cal-button">
-              <button id="calculator" class="btn-primary form-control">
-                Calculator
+              <button id="calculate-button" class="btn-primary">
+                Calculate
               </button>
             </div>
 
@@ -45,7 +53,7 @@
               type="text"
             />
             <span>%</span>
-            <button class="btn-primary">Save</button>
+            <button id="save-button" class="btn-primary">Save</button>
             <h4>Saving Amount: <span>0</span></h4>
             <h4>Remaining Balance: <span>0</span></h4>
           </div>
