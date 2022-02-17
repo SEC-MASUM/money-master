@@ -1,4 +1,5 @@
 // console.log("Connected");
+// All elements
 const incomeInput = document.getElementById("income-input");
 const foodInput = document.getElementById("food-cost");
 const rentInput = document.getElementById("rent-cost");
@@ -19,11 +20,6 @@ function balanceAmount(bigAmount, smallAmount) {
 }
 //Calcutale button
 calculateButton.addEventListener("click", function () {
-  // console.log(incomeInput.value);
-  // console.log(foodInput.value);
-  // console.log(rentInput.value);
-  // console.log(clothesInput.value);
-
   /* Checking income and expenses fields are empty or not */
   if (
     incomeInput.value != "" ||
@@ -31,7 +27,7 @@ calculateButton.addEventListener("click", function () {
     rentInput.value != "" ||
     clothesInput.value != ""
   ) {
-    /* Checking income and expenses fields are greater than or equal to 0 */
+    /* Checking  all income and expenses fields are greater than or equal to 0 */
     if (
       Number.parseFloat(incomeInput.value) >= 0 &&
       Number.parseFloat(foodInput.value) >= 0 &&
@@ -50,6 +46,7 @@ calculateButton.addEventListener("click", function () {
         totalExpenses.innerText
       );
     } else if (
+      /* Checking  any income and expenses fields are greater than or equal to 0 */
       Number.parseFloat(incomeInput.value) >= 0 ||
       Number.parseFloat(foodInput.value) >= 0 ||
       Number.parseFloat(rentInput.value) >= 0 ||
@@ -87,8 +84,10 @@ calculateButton.addEventListener("click", function () {
 
 // Save button
 saveButton.addEventListener("click", function () {
+  /* Checking Saving Input is greater than 0 or equal */
   if (Number.parseFloat(saveInput.value) > 0) {
     if (
+      /* Total expenses is greater than Income or not */
       Number.parseFloat(totalExpenses.innerText) >
       Number.parseFloat(incomeInput.value)
     ) {
@@ -96,12 +95,14 @@ saveButton.addEventListener("click", function () {
         "Your total expenses is more than your income. So you can not save money"
       );
     } else if (Number.parseFloat(balance.innerText) > 0) {
+      /* Balance is greater than 0 or not */
       const savingAmountValue = Math.round(
         Number.parseFloat(balance.innerText) *
           (Number.parseFloat(saveInput.value) / 100)
       );
 
       // console.log(savingAmountValue);
+      /* Saving Amount is less than Balance or not */
       if (savingAmountValue <= Number.parseFloat(balance.innerText)) {
         savingAmount.innerText = savingAmountValue;
 
