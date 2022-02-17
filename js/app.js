@@ -87,19 +87,35 @@ calculateButton.addEventListener("click", function () {
 
 // Save button
 saveButton.addEventListener("click", function () {
-  if (Number.parseFloat(saveInput.value) >= 0) {
-    const savingAmountValue = Math.round(
-      Number.parseFloat(balance.innerText) *
-        (Number.parseFloat(saveInput.value) / 100)
-    );
-    console.log(savingAmountValue);
-    // if(savingAmount)
+  if (Number.parseFloat(saveInput.value) > 0) {
+    if (
+      Number.parseFloat(totalExpenses.innerText) >
+      Number.parseFloat(incomeInput.value)
+    ) {
+      alert(
+        "Your total expenses is more than your income. So you can not save money"
+      );
+    } else if (Number.parseFloat(balance.innerText) > 0) {
+      const savingAmountValue = Math.round(
+        Number.parseFloat(balance.innerText) *
+          (Number.parseFloat(saveInput.value) / 100)
+      );
 
-    remainingBalance.innerText = balanceAmount(
-      balance.innerText,
-      savingAmount.innerText
-    );
+      // console.log(savingAmountValue);
+      if (savingAmountValue <= Number.parseFloat(balance.innerText)) {
+        savingAmount.innerText = savingAmountValue;
+
+        remainingBalance.innerText = balanceAmount(
+          balance.innerText,
+          savingAmount.innerText
+        );
+      } else {
+        alert("You have not enough balance to save money");
+      }
+    } else {
+      alert("Your balance is 0 or less than 0. So you can not save money");
+    }
   } else {
-    alert("Please input positive to calculate Saving Amount");
+    alert("Please enter positive number to calculate Saving Amount");
   }
 });
