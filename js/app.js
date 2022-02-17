@@ -39,7 +39,12 @@ calculateButton.addEventListener("click", function () {
         Number.parseFloat(foodInput.value) +
         Number.parseFloat(rentInput.value) +
         Number.parseFloat(clothesInput.value);
-
+      if (
+        Number.parseFloat(totalExpenses.innerText) >
+        Number.parseFloat(incomeInput.value)
+      ) {
+        alert("Your total expenses is more than your income.");
+      }
       // Remaining balance after expenses
       balance.innerText = balanceAmount(
         incomeInput.value,
@@ -97,7 +102,7 @@ saveButton.addEventListener("click", function () {
     } else if (Number.parseFloat(balance.innerText) > 0) {
       /* Balance is greater than 0 or not */
       const savingAmountValue = Math.round(
-        Number.parseFloat(balance.innerText) *
+        Number.parseFloat(incomeInput.value) *
           (Number.parseFloat(saveInput.value) / 100)
       );
 
